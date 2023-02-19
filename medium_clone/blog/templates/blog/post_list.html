@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% if category %}
+            <div class="col-sm-8 offset-sm-2 mt-5 bg-light border p-5">
+                <h1>{{ category }}</h1>
+            </div>
+        {% elif tag %}
+            <div class="col-sm-8 offset-sm-2 mt-5 bg-light border p-5">
+                <h1>{{ tag }}</h1>
+            </div>
+        {% endif %}
+        <div class="col-sm-8 offset-sm-2 mt-5">
+            <br>
+            {% for post in posts %}
+                {% include "blog/components/post.html" %}
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}
